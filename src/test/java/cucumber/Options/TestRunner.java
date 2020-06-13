@@ -9,4 +9,5 @@ import io.cucumber.junit.CucumberOptions;
 public class TestRunner {
 //,tags={"@DeletePlace"} add after glue for running this particular testcase
 //,tags={"@AddPlace"}
+	//,tags={"@UpdatePlace"}
 }

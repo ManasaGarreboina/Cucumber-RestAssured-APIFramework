@@ -32,5 +32,16 @@ public class TestDataBuild {
 	{
 		return "{\r\n    \"place_id\":\""+placeId+"\"\r\n}";
 	}
+	
+	public String updatePlacePayLoad(String placeId,String newAddress,String key){
+		return "{\n" +
+                "\"place_id\":\""+placeId+"\",\n" +
+                "\"address\":\""+newAddress+"\",\n" +
+                "\"key\":\""+key+"\"\n" +
+                "}\n" +
+                "\n" +
+                "\n";
+	}
+	
 
 }

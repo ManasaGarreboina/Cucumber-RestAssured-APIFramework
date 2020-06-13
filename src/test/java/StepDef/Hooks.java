@@ -5,6 +5,7 @@ import java.io.IOException;
 import io.cucumber.java.Before;
 
 public class Hooks {
+	/*
 	@Before("@DeletePlace")
 	public void beforeDeleteScenario() throws IOException{
 		StepDefinition sd=new StepDefinition();
@@ -14,5 +15,7 @@ public class Hooks {
 			sd.user_calls_with_Post_http_request("AddPlaceAPI","POST");
 			sd.verify_placeId_created_maps_to_using( "fred", "getPlaceAPI");
 	}
+	*/
+	
 
 }

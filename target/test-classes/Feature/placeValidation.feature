@@ -1,5 +1,5 @@
 Feature: Api Validation 
-@AddPlace
+@AddPlace @Regression
 Scenario Outline: Verifing add place
 	Given Add Place Payload <Accuracy> "<name>" "<language>" "<address>" "<Phone_number>" "<Website>"
 	When user calls "AddPlaceAPI" with "POST" http request
@@ -14,10 +14,25 @@ Examples:
 	|10			|ANI	|English	|10th Streat|(+91) 973 844 3737	|https://rahulshettyacademy.com |
 #	|50			|VANI	|Hindi		|5th Streat	|(+91) 973 855 3737	|https://rahulacademy.com 		|
 
-@DeletePlace
+
+@UpdatePlace @Resgression
+ Scenario Outline: Verifying Update place
+ 	Given Update Place Payload with "<newAddress>" "<key>"	
+ 	When user calls "updatePlaceAPI" with "PUT" http request 
+ 	Then the API call success with status code 200
+ 	And "msg" in response body is "Address successfully updated"  
+ 	
+ Examples:
+ 		|newAddress	|key		|
+ 		|park even	|qaclick123	|
+ 	
+
+@DeletePlace @Regression
 Scenario: Verifing  Delete place
 
 	Given Delete Place Payload
  	When user calls "deletePlaceAPI" with "DELETE" http request 
  	Then the API call success with status code 200
  	And "status" in response body is "OK"   
+ 	
+ 

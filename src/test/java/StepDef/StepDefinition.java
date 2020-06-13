@@ -64,6 +64,9 @@ public class StepDefinition extends Utils{
 		else if(httpMethod.equalsIgnoreCase("DELETE")){
 			response =add_res.when().delete(resourceAPI.getResource());
 		}
+		else if(httpMethod.equalsIgnoreCase("PUT")){
+			response =add_res.when().put(resourceAPI.getResource());
+		}
 		
 
 	}
@@ -95,11 +98,20 @@ public class StepDefinition extends Utils{
 		 String actualName =getJsonPath(response,"name");
 		 assertEquals(actualName,expectedName);
 	}
+	@Given("Update Place Payload with {string} {string}")
+	public void update_Place_Payload_with(String newAddress, String key) throws IOException {
+	    // Write code here that turns the phrase above into concrete actions
+		add_res=given().spec(requestSpecification())
+				.body(data.updatePlacePayLoad(placeId,newAddress, key));
+	
+	}
 	@Given("Delete Place Payload")
 	public void delete_Place_Payload() throws IOException {
 	    // Write code here that turns the phrase above into concrete actions
 		add_res=given().spec(requestSpecification()).body(data.deletePlacePayload(placeId));
 	}
+	
+
 
 
 
